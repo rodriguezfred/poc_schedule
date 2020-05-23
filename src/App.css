@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.block-group {
   display: flex;
+  flex-wrap: wrap;
+  box-shadow: 3px 5px 5px black;
+  border-radius: 2px;
+  width: 10em;
+  height: 8em;
+}
+
+.block-group>*{
+  flex: auto;
+}
+.facility-schedule {
+  display: flex;
+  border-style: solid;
+}
+.schedule-timeline {
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  border-style: solid;
 }
 
-.App-link {
-  color: #61dafb;
+.schedule-timeline > ul > li {
+  list-style:none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.schedule-place-facility {
+  border-style: solid;
+  flex-direction: row;
 }
+
+.schedule-group > ul {
+  position: relative;
+  padding: 0 var(--component-padding);
+  display: flex;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.schedule-event {
+  flex-shrink: 0;
+  float: left;
+  height: 150px;
+  width: 70%;
+  max-width: 300px;
+}
+
+.cd-schedule-modal {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: transform .4s, visibility .4s;
+}
+
+.cd-schedule-modal--open { 
+  transform: translateX(0);
+  visibility: visible;
+}
+
