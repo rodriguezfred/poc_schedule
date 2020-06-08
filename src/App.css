@@ -10,55 +10,76 @@
 .block-group>*{
   flex: auto;
 }
+.schedule-heading {
+  grid-area: heading;
+  grid-row: heading;
+}
+
 .facility-schedule {
-  display: flex;
-  border-style: solid;
-}
-.schedule-timeline {
-  flex-direction: column;
-  flex-wrap: wrap;
-  border-style: solid;
-}
-
-.schedule-timeline > ul > li {
-  list-style:none;
-}
-
-.schedule-place-facility {
-  border-style: solid;
-  flex-direction: row;
-}
-
-.schedule-group > ul {
-  position: relative;
-  padding: 0 var(--component-padding);
-  display: flex;
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
+  display: grid;
+  grid-area: schedule;
+  grid-template-rows:
+    [areas] auto
+    [time-0900] 1fr
+    [time-0930] 1fr
+    [time-1000] 1fr
+    [time-1030] 1fr;
+    /* etc...
+        Note: Use 24-hour time for line names */
+  grid-template-columns:
+    [times] 4em
+    [area-1-start] 1fr
+    [area-1-end area-2-start] 1fr
+    [area-2-end area-3-start] 1fr
+    [area-3-end area-4-start] 1fr
+    [area-4-end];
 }
 
-.schedule-event {
-  flex-shrink: 0;
-  float: left;
-  height: 150px;
-  width: 70%;
-  max-width: 300px;
-}
-
-.cd-schedule-modal {
-  position: fixed;
-  z-index: 3;
+.area-slot {
+  grid-row: areas;
+  display: block;
+  position: sticky;
   top: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  visibility: hidden;
-  transform: translateX(100%);
-  transition: transform .4s, visibility .4s;
+  z-index: 1000;
+  background-color: rgba(255,255,255,.9);
 }
 
-.cd-schedule-modal--open { 
-  transform: translateX(0);
-  visibility: visible;
+.time-slot {
+  grid-column: times;
 }
+
+.session {
+  border: solid;
+}
+
+.session-1 {
+  grid-row: time-0900 / time-0930;
+  grid-column: area-1;
+}
+
+.session-2 {
+  grid-row: time-0930 / time-1000;
+  grid-column: area-1;
+}
+
+.session-3 {
+  grid-row: time-0930 / time-1000;
+  grid-column: area-2;
+}
+
+.session-4 {
+  grid-row: time-1000 / time-1100;
+  grid-column: area-2;
+}
+
+.area-1 {
+  background-color: #1259B2;
+  color: #fff;
+}
+
+.area-2 {
+  background-color: #687f00;
+  color: #fff;
+}
+
 
