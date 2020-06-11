@@ -6,7 +6,7 @@ import Facilityschedule from './components/facility-schedule'
 function App () {
   return (
     <div className='App'>
-      <Blockgroup />
+      {/* <Blockgroup /> */}
       <Facilityschedule />
     </div>
   )

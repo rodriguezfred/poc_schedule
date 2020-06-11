@@ -19,24 +19,29 @@
   display: grid;
   grid-area: schedule;
   grid-template-rows:
-    [areas] auto
+    [places] auto
     [time-0900] 1fr
+    [time-0915] 1fr
     [time-0930] 1fr
+    [time-0945] 1fr
     [time-1000] 1fr
-    [time-1030] 1fr;
+    [time-1015] 1fr
+    [time-1030] 1fr
+    [time-1045] 1fr
+    [time-1100] 1fr;
     /* etc...
         Note: Use 24-hour time for line names */
   grid-template-columns:
     [times] 4em
-    [area-1-start] 1fr
-    [area-1-end area-2-start] 1fr
-    [area-2-end area-3-start] 1fr
-    [area-3-end area-4-start] 1fr
-    [area-4-end];
+    [place-1-start] 1fr
+    [place-1-end place-2-start] 1fr
+    [place-2-end place-3-start] 1fr
+    [place-3-end place-4-start] 1fr
+    [place-4-end];
 }
 
-.area-slot {
-  grid-row: areas;
+.place-slot {
+  grid-row: places;
   display: block;
   position: sticky;
   top: 0;
@@ -46,38 +51,35 @@
 
 .time-slot {
   grid-column: times;
+  font-size: small;
 }
 
 .session {
   border: solid;
 }
 
-.session-1 {
-  grid-row: time-0900 / time-0930;
-  grid-column: area-1;
-}
 
 .session-2 {
   grid-row: time-0930 / time-1000;
-  grid-column: area-1;
+  grid-column: place-1;
 }
 
 .session-3 {
   grid-row: time-0930 / time-1000;
-  grid-column: area-2;
+  grid-column: place-2;
 }
 
 .session-4 {
   grid-row: time-1000 / time-1100;
-  grid-column: area-2;
+  grid-column: place-2;
 }
 
-.area-1 {
+.place-1 {
   background-color: #1259B2;
   color: #fff;
 }
 
-.area-2 {
+.place-2 {
   background-color: #687f00;
   color: #fff;
 }
